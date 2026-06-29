@@ -20,7 +20,7 @@ end
      params[:password].blank?
 
     render json: {
-      error: "Name, email and password are required"
+      error: "Name, email and password needed"
     }, status: :bad_request
     return
   end
