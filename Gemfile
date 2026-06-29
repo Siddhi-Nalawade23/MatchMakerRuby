@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "json", "~> 2.7"
+gem "json", "~> 2.20"
 gem "rack-cors"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
