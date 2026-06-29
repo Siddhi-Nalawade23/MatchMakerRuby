@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   private
 
   def omniauth_request?
-    request.path.start_with?('/users/auth/')
+    request.path.start_with?("/users/auth/")
   end
 end
