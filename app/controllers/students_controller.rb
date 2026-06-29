@@ -1,19 +1,18 @@
 class StudentsController < ApplicationController
-
     def index
         @students = Student.all
     end
 
 
-    def show 
+    def show
         @student = Student.find(params[:id])
-    end   
+    end
 
     def destroy
       @student= Student.find(params[:id])
       @student.destroy
       redirect_to students_path, notice: "Student deleted successfully."
-    end 
+    end
     def new
     @student = Student.new
     end
@@ -27,15 +26,15 @@ class StudentsController < ApplicationController
     end
     end
 
-    def edit 
+    def edit
     @student=Student.find(params[:id])
-    end   
-    
+    end
+
     def update
     @student=Student.find(params[:id])
     if @student.update(student_params)
       redirect_to students_path, notice: "Student updated successfully."
-      
+
     else
       render :edit, status: :unprocessable_entity
     end
@@ -46,4 +45,4 @@ class StudentsController < ApplicationController
     def student_params
         params.require(:student).permit(:first_name, :last_name, :email)
     end
-end 
+end

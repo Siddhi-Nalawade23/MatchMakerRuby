@@ -1,8 +1,8 @@
 # app/services/jwt_service.rb
 class JwtService
-  ALGORITHM = 'HS256'.freeze
-  ISSUER    = 'JwtIssuer'.freeze
-  AUDIENCE  = 'JwtAudience'.freeze
+  ALGORITHM = "HS256".freeze
+  ISSUER    = "JwtIssuer".freeze
+  AUDIENCE  = "JwtAudience".freeze
   EXPIRY    = 24.hours
 
   def self.encode(user)
@@ -31,13 +31,13 @@ class JwtService
       verify_aud: true
     ).first
   rescue JWT::ExpiredSignature
-    raise StandardError, 'Token has expired'
+    raise StandardError, "Token has expired"
   rescue JWT::DecodeError => e
     raise StandardError, "Invalid token: #{e.message}"
   end
 
   def self.secret_key
     Rails.application.credentials.jwt_secret_key ||
-      ENV.fetch('JWT_SECRET_KEY') { raise 'JWT_SECRET_KEY is not set!' }
+      ENV.fetch("JWT_SECRET_KEY") { raise "JWT_SECRET_KEY is not set!" }
   end
 end

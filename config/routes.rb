@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   match '/login', to: 'users#login', via: [:post, :options]
+   match "/login", to: "users#login", via: [ :post, :options ]
 
   get "home/index"
   get "/products", to: "products#index"
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/shop/:id", to: "shops#show"
   post "/shops", to: "shops#create"
   get "/product/:id", to: "products#show"
-  post "product",to: "products#create"
+  post "product", to: "products#create"
   # delete "/shop",to: "shop#delete"
 
   get "/users", to: "users#index"
@@ -19,18 +19,18 @@ Rails.application.routes.draw do
   get "singles/my_singles", to: "singles#my_singles"
   get "singles/by_broker/:broker_number", to: "singles#index"
 
-  
+
 
   # root "users#index"
   root "home#index"
 devise_for :users, controllers: {
-  omniauth_callbacks: 'users/omniauth_callbacks'
+  omniauth_callbacks: "users/omniauth_callbacks"
 }
 devise_scope :user do
-  get '/users/auth/failure', to: 'users/omniauth_callbacks#failure'
+  get "/users/auth/failure", to: "users/omniauth_callbacks#failure"
 end
-get '/users/auth/failure', to: 'users/omniauth_callbacks#failure'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+get "/users/auth/failure", to: "users/omniauth_callbacks#failure"
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 resources :students
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
